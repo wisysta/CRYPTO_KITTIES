@@ -55,8 +55,8 @@ contract KittyAccessControl is Pausable {
     modifier onlyCLevel() {
         require(
             msg.sender == cooAddress ||
-            msg.sender == ceoAddress ||
-            msg.sender == cfoAddress
+                msg.sender == ceoAddress ||
+                msg.sender == cfoAddress
         );
         _;
     }
@@ -87,10 +87,11 @@ contract KittyAccessControl is Pausable {
 
     function withdrawBalance() external onlyCFO {
         // cfoAddress.transfer(this.balance);
-        (bool success, ) = payable(cfoAddress).call{value: address(this).balance}("");
+        (bool success, ) = payable(cfoAddress).call{
+            value: address(this).balance
+        }("");
         require(success, "Failed to send Ether");
     }
-
 
     /*** Pausable functionality adapted from OpenZeppelin ***/
 
@@ -116,7 +117,7 @@ contract KittyAccessControl is Pausable {
     /// @dev Unpauses the smart contract. Can only be called by the CEO, since
     ///  one reason we may pause the contract is when CFO or COO accounts are
     ///  compromised.
-    function unpause() public onlyCEO {
+    function unpause() public virtual onlyCEO {
         // can't unpause if contract was upgraded
         // paused = false;
         _unpause();

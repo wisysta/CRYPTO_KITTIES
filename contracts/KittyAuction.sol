@@ -18,7 +18,7 @@ contract KittyAuction is KittyOwnership {
     /// @dev The address of a custom ClockAution subclassed contract that handles siring
     ///  auctions. Needs to be separate from saleAuction because the actions taken on success
     ///  after a sales and siring auction are quite different.
-    SiringClockAuction public siringAuction;
+    // SiringClockAuction public siringAuction;
 
     /// @dev Sets the reference to the sale auction.
     /// @param _address - Address of sale contract.
@@ -36,15 +36,15 @@ contract KittyAuction is KittyOwnership {
 
     /// @dev Sets the reference to the siring auction.
     /// @param _address - Address of siring contract.
-    function setSiringAuctionAddress(address _address) public onlyCEO {
-        SiringClockAuction candidateContract = SiringClockAuction(_address);
+    // function setSiringAuctionAddress(address _address) public onlyCEO {
+    //     SiringClockAuction candidateContract = SiringClockAuction(_address);
 
-        // NOTE: verify that a contract is what we expect - https://github.com/Lunyr/crowdsale-contracts/blob/cfadd15986c30521d8ba7d5b6f57b4fefcc7ac38/contracts/LunyrToken.sol#L117
-        require(candidateContract.isSiringClockAuction());
+    //     // NOTE: verify that a contract is what we expect - https://github.com/Lunyr/crowdsale-contracts/blob/cfadd15986c30521d8ba7d5b6f57b4fefcc7ac38/contracts/LunyrToken.sol#L117
+    //     require(candidateContract.isSiringClockAuction());
 
-        // Set the new contract address
-        siringAuction = candidateContract;
-    }
+    //     // Set the new contract address
+    //     siringAuction = candidateContract;
+    // }
 
     /// @dev Put a kitty up for auction.
     ///  Does some ownership trickery to create auctions in one tx.

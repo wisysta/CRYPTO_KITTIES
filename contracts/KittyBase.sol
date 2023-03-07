@@ -2,11 +2,12 @@ pragma solidity ^0.8.18;
 
 import "./KittyAccessControl.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 
 /// @title Base contract for CryptoKitties. Holds all common structs, events and base variables.
 /// @author Axiom Zen (https://www.axiomzen.co)
 /// @dev See the KittyCore contract documentation to understand how the various contract facets are arranged.
-contract KittyBase is KittyAccessControl, ERC721Enumerable {
+contract KittyBase is KittyAccessControl, ERC721Enumerable, ERC721Holder {
     string _name = "CryptoKitties";
     string _symbol = "CK";
 

@@ -49,7 +49,7 @@ contract KittyCore is KittyMinting {
     address public newContractAddress;
 
     /// @notice Creates the main CryptoKitties smart contract instance.
-    constructor() public {
+    constructor() {
         // Starts paused.
         // paused = true;
         _pause();
