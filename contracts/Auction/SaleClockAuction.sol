@@ -37,7 +37,7 @@ contract SaleClockAuction is ClockAuction {
     {
         require(
             msg.sender == address(nonFungibleContract),
-            "you're not the nftcontract"
+            "you're not the NFcontract"
         );
         _escrow(_seller, _tokenId);
         Auction memory auction = Auction(
